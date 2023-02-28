@@ -15,7 +15,7 @@ before_action :authenticate_user!
   def update
     homey = Homey.find(params[:id])
     if homey.update!(homey_params)
-      flash[:alert] = "Successfully Updated"
+      flash[:notice] = "Successfully Updated"
     else
       flash[:alert] = "Failed to update"
     end

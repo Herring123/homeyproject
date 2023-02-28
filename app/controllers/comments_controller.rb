@@ -3,8 +3,9 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    if @comment = Comment.create(comment_params)
-      flash[:alert] = "Successfully Updated"
+    comment = Comment.new(comment_params)
+    if comment.save
+      flash[:notice] = "Successfully Updated"
     else
       flash[:alert] = "Failed to update"
     end
